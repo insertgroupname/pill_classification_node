@@ -2,7 +2,8 @@ import os
 import cv2
 import numpy as np
 
-this_path = "/home/chaichet_pderizer/work/pill/node/server/pyfol/shape_predict/func/src/color_recognition_api/"
+
+this_path = str(os.path.split(__file__)[0])
 def color_histogram_of_test_image(test_src_image):
     # load the image
     chans = cv2.split(test_src_image)
@@ -28,31 +29,32 @@ def color_histogram_of_test_image(test_src_image):
             feature_data = red + ',' + green + ',' + blue
             # print(feature_data)
 
-    with open(str(this_path)+'test.data', 'w') as myfile:
+    with open(this_path+'/test.data', 'w') as myfile:
         myfile.write(feature_data)
 
 
 def color_histogram_of_training_image(img_name):
     # detect image color by using image file name to label training data
-    if 'red' in img_name:
+    str_1 = img_name.split(this_path)[1]
+    if 'red' in str_1:
         data_source = 'RED'
-    elif 'yellow' in img_name:
+    elif 'yellow' in str_1:
         data_source = 'YELLOW'
-    elif 'green' in img_name:
+    elif 'green' in str_1:
         data_source = 'GREEN'
-    elif 'orange' in img_name:
+    elif 'orange' in str_1:
         data_source = 'ORANGE'
-    elif 'white' in img_name:
+    elif 'white' in str_1:
         data_source = 'WHITE'
-    elif 'black' in img_name:
+    elif 'black' in str_1:
         data_source = 'BLACK'
-    elif 'blue' in img_name:
+    elif 'blue' in str_1:
         data_source = 'BLUE'
-    elif 'purple' in img_name:
+    elif 'purple' in str_1:
         data_source = 'PURPLE'
-    elif 'brown' in img_name:
+    elif 'brown' in str_1:
         data_source = 'BROWN'
-    elif 'pink' in img_name:
+    elif 'pink' in str_1:
         data_source = 'PINK'
     # load the image
     image = cv2.imread(img_name)
@@ -78,7 +80,7 @@ def color_histogram_of_training_image(img_name):
             red = str(elem)
             feature_data = red + ',' + green + ',' + blue
 
-    with open(str(this_path)+'training.data', 'a') as myfile:
+    with open(this_path+'/training.data', 'a') as myfile:
         myfile.write(feature_data + ',' + data_source + '\n')
 
 
@@ -88,7 +90,7 @@ def training():
         # Please check your own path if you got error from color_path
         # Using os.getcwd() for check the real path
         # color_path = os.path.join('..', 'color_training_dataset', c) for fluke
-        color_path = os.path.join(str(this_path)+'color_training_dataset', c)
+        color_path = os.path.join(this_path,'color_training_dataset', c)
         # print(color_path)
         for file in os.listdir(color_path):
             file_path = os.path.join(color_path, file)

@@ -54,39 +54,43 @@
 
   </div>
   <>
+    <h1> Your drug result</h1>
+    <br>
     <h1 id="result"></h1>
     <br>
 
-    <form id="upload" method="POST" action="/predict_pizza"></form>
-    <h1>Put your drug in here</h1>
-    <p>
+    <form id="upload" method="POST" action="/upload">
+      <h1>Put your drug in here</h1>
       <input type="file" id="imgInput" name="imgInput" onchange="previewFile(this);" required multiple accept="image/*">
-    </p>
-    <img id="previewImg" src="" alt="Placeholder" style="visibility: hidden;">
-    <p>
-      <input id="submit" type="submit" value="Submit">
-    </p>
+      <p>
+      <img id="previewImg" src="" alt="Placeholder" style="visibility: hidden;">
+      <p>
+      <input id="submit" type="submit" value="submit">
     </form>
     <script>
-      $("#submit").click((event) => {
-        event.preventDefault();
-        $("#result").text("")
-        $.ajax({
-          global: false,
-          type: 'POST',
-          url: "/predict_drug",
-          dataType: 'html',
-          data: {
-            img: $("#previewImg").attr("src")
-          },
-          success: function (result) {
-            $("#result").text(result)
-          },
-          error: function (request, status, error) {
-            serviceError();
-          }
-        });
-      })
+      // $("#submit").click(function () {
+        $("#upload").submit(function (e) {
+          $("#result").text("predicting result...")
+          e.preventDefault();
+          var formData = new FormData(this);
+          $.ajax({
+            type: "POST",
+            url: "/predict_drug",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (result) {
+              console.log("result", result)
+              $('#result').text("Your result : "+result)
+            },
+            error: function (e) {
+              console.log("some error", e);
+            }
+          });
+
+        })
+      // })
+
     </script>
 </body>
 

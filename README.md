@@ -8,7 +8,7 @@ $ npm i
 ```
 ## Start
 ```
-$ node start
+$ npm start
 ```
 ### Color classification
 If you want to add more class for traning color data,

@@ -1,2 +1,4 @@
 node_modules/
 ecosystem.config.js
+public/img/uploads/*
+!public/img/uploads/.gitkeep

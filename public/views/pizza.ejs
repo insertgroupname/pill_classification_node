@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+  function previewFile(input) {
+    var file = $("input[type=file]").get(0).files[0];
+
+    if (file) {
+      var reader = new FileReader();
+      var prev = document.getElementById("previewImg")
+      var x = ""
+      reader.onload = function () {
+        $("#previewImg").attr("src", reader.result);
+        prev.style.visibility = "visible"
+        x = reader.result
+      }
+      reader.readAsDataURL(file);
+      console.log(x)
+
+    }
+  }
+</script>
+
+<style>
+  img {
+    max-width: 450px;
+    max-height: 450px;
+  }
+</style>
+
+<body align="center">
+  <div class="container-fluid bg-3 text-center">
+    <h3>"aasdfdsafsadf"</h3><br>
+    <div class="row">
+      <div class="col-sm-4">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua.</p>
+
+      </div>
+      <div class="col-sm-4">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua.</p>
+      </div>
+      <div class="col-sm-4">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua.</p>
+      </div>
+    </div>
+
+  </div>
+  <>
+    <h1 id="result"></h1>
+
+    <p>
+      <input type="file" id="imgInput" name="imgInput" onchange="previewFile(this);" required multiple accept="image/*">
+    </p>
+    <form id="upload" method="POST" action="/predict_pizza"></form>
+      <img id="previewImg" src="" alt="Placeholder" style="visibility: hidden;">
+    <p>
+      <input id="submit" type="submit" value="Submit">
+    </p>
+    </form>
+    <script>
+      $("#submit").click((event) => {
+        event.preventDefault();
+
+        $.ajax({
+          global: false,
+          type: 'POST',
+          url: "/predict_pizza",
+          dataType: 'html',
+          data: {
+            img: $("#previewImg").attr("src")
+          },
+          success: function (result) {
+            $("#result").text(result)
+          },
+          error: function (request, status, error) {
+            serviceError();
+          }
+        });
+      })
+    </script>
+</body>
+
+</html>

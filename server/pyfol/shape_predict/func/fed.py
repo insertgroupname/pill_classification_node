@@ -173,4 +173,4 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        print("ERROR BOI : --"+img_path+sys.argv[1]+"--------" + str(e))
+        print("ERROR BOI : ----------" + str(e))

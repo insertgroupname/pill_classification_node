@@ -46,4 +46,7 @@ def main():
     except Exception as e:
         print("\n"+str(e.message)+"\n"+str(e.args))
         
-main()
+try:
+    main()
+except Exception as e:
+    print("ERROR BOI : ----------" + str(e))

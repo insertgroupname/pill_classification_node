@@ -82,7 +82,7 @@
     <form id="upload" method="POST" action="/upload">
       <div class="row">
         <div class="col-lg-6 mx-auto">
-          <h5 class="text-white text-center">Put your pizza in here</h5>
+          <h5 class="text-white text-center">Put your pizza in here and then press submit</h5>
           <div class="input-group mb-3 px-1 py-1 round bg-white shadow-sm">
             <input type="file" class="upload form-control border-0" id="imgInput" name="imgInput"
               onchange="previewFile(this);" required multiple accept="image/*">
@@ -114,8 +114,8 @@
         $("#result").text(result)
       },
       error: function (request, status, error) {
-        $('#result').text("There is some error occurred " + e)
-        console.log("some error", e);
+        $('#result').text("There is some error occurred " + error)
+        console.log("some error", error);
       }
     });
   })

@@ -1,24 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Image Classification</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.3.0/dist/tf.min.js"></script>
 </head>
+
+<style>
+  .upload {
+    opacity: 0;
+  }
+
+  #upload-label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+  }
+
+  body {
+    min-height: 100vh;
+    background: rgb(238, 174, 202);
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  }
+
+  .round {
+    border-radius: 35px !important;
+  }
+
+  #previewImg {
+    width: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+</style>
+
 <body>
-<div class="container-fluid bg-3 text-center">    
-  <h3>"aasdfdsafsadf"</h3><br>
-  <div class="row">
-    <div class="col-sm-4">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      
-    </div>
-    <div class="col-sm-4"> 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-    <div class="col-sm-4"> 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
+  <div class="container py-5 text-center">
+    <header class="text-black text-center">
+      <h1 class="display-4">Index page</h1>
+      <br>
+      <p class="lead mb-0 mb-3">Choose where would you like to go</p>
+      <h1><------------------></h1>
+    </header>
+    <button onclick="window.location='/pizza'"> GO TO PIZZA CLASSIFICATION</button>
+    <button onclick="window.location='/drug'"> GO TO DRUG CLASSIFICATION</button>
   </div>
-  <button onclick="window.location='/pizza'"> GO TO REAL PIZZA PREDICTION</button>
-  <button onclick="window.location='/drug'"> GO TO REAL DRUG PREDICTION</button>
-</div>
+
+  </div>
 </body>
+
 </html>

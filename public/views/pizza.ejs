@@ -2,8 +2,24 @@
 <html lang="en">
 
 <head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Image Classification</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.3.0/dist/tf.min.js"></script>
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
 
@@ -27,65 +43,82 @@
 </script>
 
 <style>
-  img {
-    max-width: 450px;
-    max-height: 450px;
+  .upload {
+    opacity: 0;
+  }
+
+  #upload-label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+  }
+
+  body {
+    min-height: 100vh;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(170deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+  }
+
+  .round {
+    border-radius: 35px !important;
+  }
+
+  #previewImg {
+    width: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 </style>
 
-<body align="center">
-  <div class="container-fluid bg-3 text-center">
-    <h3>"aasdfdsafsadf"</h3><br>
-    <div class="row">
+<body>
+  <div class="container py-5 text-center">
+    <header class="text-white text-center">
+      <h1 class="display-4">Pizza or not pizza Classification</h1>
       <div class="col-sm-4">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua.</p>
-
       </div>
-      <div class="col-sm-4">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua.</p>
-      </div>
-      <div class="col-sm-4">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua.</p>
-      </div>
-    </div>
+      <>
+        <h4 id="result" class="py-2">Result will be shown here</h4>
+    </header>
+    <form id="upload" method="POST" action="/upload">
+      <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <h5 class="text-white text-center">Put your pizza in here</h5>
+          <div class="input-group mb-3 px-1 py-1 round bg-white shadow-sm">
+            <input type="file" class="upload form-control border-0" id="imgInput" name="imgInput"
+              onchange="previewFile(this);" required multiple accept="image/*">
+            <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
+          </div>
 
-  </div>
-  <>
-    <h1 id="result"></h1>
-
-    <p>
-      <input type="file" id="imgInput" name="imgInput" onchange="previewFile(this);" required multiple accept="image/*">
-    </p>
-    <form id="upload" method="POST" action="/predict_pizza"></form>
-      <img id="previewImg" src="" alt="Placeholder" style="visibility: hidden;">
-    <p>
-      <input id="submit" type="submit" value="Submit">
-    </p>
+        </div>
+      </div>
+      <input id="submit" type="submit" value="submit">
     </form>
-    <script>
-      $("#submit").click((event) => {
-        event.preventDefault();
-
-        $.ajax({
-          global: false,
-          type: 'POST',
-          url: "/predict_pizza",
-          dataType: 'html',
-          data: {
-            img: $("#previewImg").attr("src")
-          },
-          success: function (result) {
-            $("#result").text(result)
-          },
-          error: function (request, status, error) {
-            serviceError();
-          }
-        });
-      })
-    </script>
+    <img id="previewImg" src="" alt="Placeholder" style="visibility: hidden;">
+  </div>
 </body>
+
+</body>
+<script>
+  $("#submit").click((event) => {
+    event.preventDefault();
+    $("#result").text("predicting result...")
+    $.ajax({
+      global: false,
+      type: 'POST',
+      url: "/predict_pizza",
+      dataType: 'html',
+      data: {
+        img: $("#previewImg").attr("src")
+      },
+      success: function (result) {
+        $("#result").text(result)
+      },
+      error: function (request, status, error) {
+        serviceError();
+      }
+    });
+  })
+</script>
 
 </html>

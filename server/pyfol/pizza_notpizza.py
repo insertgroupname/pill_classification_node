@@ -15,7 +15,7 @@ def predict_pizza(x):
     if per >= 75.0:
         return 'pizza'
     else:
-        return 'not_pizza'
+        return 'not pizza'
 
 def main():
     # img = load_img('insertimgurl',target_size=(256,256))
@@ -41,7 +41,7 @@ def main():
         img_array = tf.expand_dims(img_array, 0)
         predictor = model.predict(img_array)
         score = predictor[0]
-        print('It has pizza percent is %.49f and it is %s' % (score*100, predict_pizza(score)))
+        print('It has pizzaness %.22f'%(score*100) + '%' + ' which is %s' % (predict_pizza(score)))
         
     except Exception as e:
         print("\n"+str(e.message)+"\n"+str(e.args))

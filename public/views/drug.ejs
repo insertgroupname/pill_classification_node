@@ -113,6 +113,7 @@
         $('#result').text("Your result : " + result)
       },
       error: function (e) {
+        $('#result').text("There is some error occurred " + e)
         console.log("some error", e);
       }
     });

@@ -114,7 +114,8 @@
         $("#result").text(result)
       },
       error: function (request, status, error) {
-        serviceError();
+        $('#result').text("There is some error occurred " + e)
+        console.log("some error", e);
       }
     });
   })

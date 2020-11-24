@@ -20,8 +20,7 @@ The `traning.data` will be generated after you run for another time.
 
 ### Document so far
 
-Most preprocessing, shape prediction will be in this file<br>
-This file will run magic code that will predict the shape
+Most preprocessing, shape prediction will be in this file and it will run magic code that will predict the shape
 
 ```
 pill_classification_node/server/pyfol/shape_predict/func/fed.py

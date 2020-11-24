@@ -18,10 +18,11 @@ If you want to add more class for traning color data,
 	```<br>
 The `traning.data` will be generated after you run for another time.
 
-### Document
+### Document so far
 
-<p>Most preprocessing, shape prediction will be in this file</p>
-<p>This file will run magic code that will predict the shape</p>
+Most preprocessing, shape prediction will be in this file<br>
+This file will run magic code that will predict the shape
+
 ```
 pill_classification_node/server/pyfol/shape_predict/func/fed.py
 ```
@@ -31,8 +32,11 @@ pill_classification_node/server/pyfol/shape_predict/func/fed.py
 pill_classification_node/server/pyfol/shape_predict/func/src/colorPredictor.py
 ```
 <p>It will also run two file</p>
+
 `pill_classification_node/server/pyfol/shape_predict/func/src/color_recognition_api/knn_classifier.py`<br>
+
 and <br>
+
 `pill_classification_node/server/pyfol/shape_predict/func/src/color_recognition_api/color_histogram_feature_extraction.py`<br>
 
 ### Stronk members

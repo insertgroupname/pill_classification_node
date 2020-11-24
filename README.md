@@ -40,9 +40,9 @@ and <br>
 `pill_classification_node/server/pyfol/shape_predict/func/src/color_recognition_api/color_histogram_feature_extraction.py`<br>
 
 ### Stronk members
-Mr.KIATISAK PETHOR [EEarth1270](https://github.com/EEarth1270) Preprocess and shape prediction<br> 
-Mr.CHAICHET PHAIBUNWITTHAYASAK [mrforgotten](https://github.com/mrforgotten) Intergrated and implemented<br> 
-Mr.VORAPOL CHAROENKITMONGKOL [flukerbooker](https://github.com/flukerbooker) Color prediction<br> 
+Mr.KIATISAK PETHOR [EEarth1270](https://github.com/EEarth1270) <-- Preprocess and shape prediction<br> 
+Mr.CHAICHET PHAIBUNWITTHAYASAK [mrforgotten](https://github.com/mrforgotten) <--Intergrated and implemented<br> 
+Mr.VORAPOL CHAROENKITMONGKOL [flukerbooker](https://github.com/flukerbooker) <-- Color prediction<br> 
 	
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

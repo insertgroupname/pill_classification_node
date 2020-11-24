@@ -41,7 +41,7 @@ and <br>
 
 ### Stronk members
 Mr.KIATISAK PETHOR [EEarth1270](https://github.com/EEarth1270) <-- Preprocess and shape prediction<br> 
-Mr.CHAICHET PHAIBUNWITTHAYASAK [mrforgotten](https://github.com/mrforgotten) <--Intergrated and implemented<br> 
+Mr.CHAICHET PHAIBUNWITTHAYASAK [mrforgotten](https://github.com/mrforgotten) <-- Intergrated and implemented<br> 
 Mr.VORAPOL CHAROENKITMONGKOL [flukerbooker](https://github.com/flukerbooker) <-- Color prediction<br> 
 	
 ## License
